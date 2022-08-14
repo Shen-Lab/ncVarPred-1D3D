@@ -12,7 +12,10 @@ for key_i in list(hic_list.keys()):
 		for resolution_i in ['100000', '500000', '1000000']:
 		for resolution_i in ['100000']:
 			print(hic_i)
+			#Extract interaction frequency matrix from the hic file and save in a text file using the juicer.
 			extract_if_from_hic('hic_downloaded/', './juicer_tools_1.22.01.jar', './', hic_i, resolution_i, 'NONE', chr_index_list)
+			#Convert interaction frequency matrix, from the text file to numpy array, for all chromosome pairs.
 			if_txt_to_npy('if_matrix_' + resolution_i + '/', hic_i, resolution_i, chr_length_hg19, 'if_matrix_' + resolution_i + '/', chr_index_list)
+			#Merge all interaction frequency matrix into a whole genome level matrix.
 			merge_if_npy('if_matrix_' + resolution_i + '/', hic_i, resolution_i, chr_length_hg19, 'if_matrix_' + resolution_i + '_result/', chr_index_list) 
 
