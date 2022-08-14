@@ -8,11 +8,11 @@ hic_list = eval(open('hic_list_whole.txt', 'r').read())
 
 for key_i in list(hic_list.keys()):
 	for hic_i in hic_list[key_i]:
-		#download_hic('hic_downloaded/', hic_i)
-		#for resolution_i in ['100000', '500000', '1000000']:
+		download_hic('hic_downloaded/', hic_i)
+		for resolution_i in ['100000', '500000', '1000000']:
 		for resolution_i in ['100000']:
 			print(hic_i)
-			#extract_if_from_hic('hic_downloaded/', './juicer_tools_1.22.01.jar', './', hic_i, resolution_i, 'NONE', chr_index_list)
-			#if_txt_to_npy('if_matrix_' + resolution_i + '/', hic_i, resolution_i, chr_length_hg19, 'if_matrix_' + resolution_i + '/', chr_index_list)
+			extract_if_from_hic('hic_downloaded/', './juicer_tools_1.22.01.jar', './', hic_i, resolution_i, 'NONE', chr_index_list)
+			if_txt_to_npy('if_matrix_' + resolution_i + '/', hic_i, resolution_i, chr_length_hg19, 'if_matrix_' + resolution_i + '/', chr_index_list)
 			merge_if_npy('if_matrix_' + resolution_i + '/', hic_i, resolution_i, chr_length_hg19, 'if_matrix_' + resolution_i + '_result/', chr_index_list) 
 
