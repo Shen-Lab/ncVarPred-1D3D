@@ -28,5 +28,8 @@ Step 3 & 4 similar to step 1 & 2, just make the one-sided KS test based on our p
 You need to provide the genome sequences, chromatin structure and the sequence-structure matching index as the model input. For more details, you may check the run_model_train.sh.
 
 ### GNN based architecture
-Similar to the MLP based architecture, you may check the run_model_train.sh for more details. The DNABERT embedded whole genome vector can be downloaded [here](https://drive.google.com/file/d/1mC05WLGeNNO-nBGaYnCp4tw1Wkh6C9jd/view?usp=sharing)
+Similar to the MLP based architecture, you may check the run_model_train.sh for more details. The DNABERT embedded whole genome vector can be downloaded [here](https://drive.google.com/file/d/1mC05WLGeNNO-nBGaYnCp4tw1Wkh6C9jd/view?usp=sharing).
+
+## SNP/eQTL effect analysis
+
 
