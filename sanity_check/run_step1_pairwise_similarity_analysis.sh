@@ -12,7 +12,7 @@ do
 			then
 				echo ${hic}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step11_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name GM12878 --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step1_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name GM12878 --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -24,7 +24,7 @@ do
 			then
 				echo ${hic}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step11_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name IMR90 --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step1_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name IMR90 --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -36,7 +36,7 @@ do
 			then
 				echo ${hic}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step11_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name K562 --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step1_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name K562 --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
