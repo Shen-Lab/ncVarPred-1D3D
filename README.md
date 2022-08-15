@@ -36,3 +36,6 @@ After the best models are selected based on validation loss, you may interest in
 ## SNP/eQTL effect analysis
 For noncoding mutation effection prediction, two examples are provided in this section.
 
+### GTEx cell line specific eQTLs
+You may need to download the data file [a](https://www.gtexportal.org/home/datasets)
+
