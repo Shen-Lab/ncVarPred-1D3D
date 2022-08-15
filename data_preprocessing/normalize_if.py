@@ -14,8 +14,7 @@ hic_list = eval(open('hic_list_whole.txt', 'r').read())
 
 path = 'if_matrix_novc_whole/'
 
-#for resolution_i in ['100000', '500000', '1000000']:
-for resolution_i in ['1000000']:
+for resolution_i in ['100000', '500000', '1000000']:
 	for key_index_i in range(len(list(hic_list.keys()))):
 		hic_list_temp = hic_list[list(hic_list.keys())[key_index_i]]
 		for hic_i in range(len(hic_list_temp)):
@@ -25,5 +24,3 @@ for resolution_i in ['1000000']:
 			adj = normalize(input + sp.eye(input.shape[0]))
 			np.save(path + 'if_matrix_' + resolution_i + '/' + hic_name_i + '_novc_whole_normalized.npy', adj)
 			
-
-
