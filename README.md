@@ -11,4 +11,6 @@ Step 3 For each genome sequence, find the matched region from the interaction fr
 Step 4 (optional) To reduce the memory burden during training and inference, the training and test set are splitted into multiple subsets. For each chromosome, (training: all except 8 and 9. testing: 8 and 9), each subset contain 10k samples.
 
 ## Sanity check (consistency among 1D gennome sequence, 3D chromatin structure and epigenetic profiles)
+Step 1 Calculate the genome sequence similarity (1K bp, pairwise matching), epigenetic events profile similarity and the 3D structure similarity (interaction frequency).
 
+Step 2 
