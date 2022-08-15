@@ -6,8 +6,8 @@ from model_general import DeepSEA
 from sklearn import metrics
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
-from libauc.optimizers import SOAP_SGD, SOAP_ADAM
-from libauc.losses import APLoss_SH
+#from libauc.optimizers import SOAP_SGD, SOAP_ADAM
+#from libauc.losses import APLoss_SH
 
 def get_auprc(preds, obs):
 	precision, recall, thresholds  = metrics.precision_recall_curve(obs, preds)
