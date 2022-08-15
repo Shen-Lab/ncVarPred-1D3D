@@ -11,7 +11,7 @@ do
 			then
 				echo ${hic}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step12_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed}" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step2_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed}" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -22,7 +22,7 @@ do
 			then
 				echo ${hic}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step12_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed}" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step2_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed}" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -33,7 +33,7 @@ do
 			then
 				echo ${hic}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step12_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed}" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step2_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed}" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
