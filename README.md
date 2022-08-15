@@ -15,9 +15,12 @@ Step 4 (optional) To reduce the memory burden during training and inference, the
 ### Prior model training, focus on all samples prepared by the DeepSEA.
 Step 1 Calculate the genome sequence similarity (1K bp, pairwise matching), epigenetic events profile similarity and the 3D structure similarity (interaction frequency).
 
-Step 2 Use the one-sided KS test to check the significance of our assumption about consistency among 1D genome sequence, 3D chromatin structure and epigenetic profiles. You may run the step2*getsummary.py to get the summary among our 100 replicates.
+Step 2 Use the one-sided KS test to check the significance of our assumption about consistency among 1D genome sequence, 3D chromatin structure and epigenetic profiles. You may run the step2_statistics_analysis_45degree_getsummary.py to get the summary among our 100 replicates.
 
 ### Post model training, focus the test set to check if we have learned the pattern and have better consistency in our prediction.
 Step 3 & 4 similar to step 1 & 2, just make the one-sided KS test based on our prediction on the test set.
 
 ## Model training
+### MLP based architecture
+
+### GNN based architecture
