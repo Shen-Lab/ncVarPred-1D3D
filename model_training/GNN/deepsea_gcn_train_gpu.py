@@ -82,7 +82,7 @@ def main():
 	elif(node_feature_type == 'allones'):
 		node_feature = torch.from_numpy(np.zeros((structure_all.shape[0], 768)) + 1).float().cuda()
 	print('training data loading finished')
-	num_epoch = 50
+	num_epoch = 40
 	if(loss_type == 'BCE'):
 		best_valid_loss = 10
 	elif(loss_type == 'AP'):
@@ -101,7 +101,7 @@ def main():
 	print('validation data loading finished')
 	section_size = len(training_section_chr)
 	section_index = np.arange(section_size)
-	validation_per_number_of_section = 50
+	validation_per_number_of_section = 20
 	valid_size = valid_y.shape[0]
 	num_output_channel = valid_y.shape[1]
 	ap = np.zeros(num_output_channel)
