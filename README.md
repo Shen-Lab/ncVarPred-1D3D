@@ -1,6 +1,9 @@
 # noncoding_genome_variant
 Integrate genome sequence and protein structure for noncoding genome variant effect prediction
 
+## Environment preparation
+You may create an environment using the environment.yml file, by running "conda env create -f environment.yml".
+
 ## Data preparation
 Step 1 Prepare the interaction frequency matrixs (3D structure of the whole genome). You can run the preprocessing.py in the data_preprocessing folder. It may take a few hours. The interaction frequency matrix is normalized by runing the normalize_if.py. You need to download the [juicer tools](https://github.com/aidenlab/juicer/wiki/Download). The version 1.22.01 is used in this analysis. Due to the data availablility, only the cell line GM12878, IMR90 and K562's Hi-C experiment data are used in this analysis.
 
