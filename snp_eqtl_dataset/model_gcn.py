@@ -1,0 +1,83 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from layers import GraphConvolution
+
+class DeepSEA_concatenation(nn.Module):
+	def __init__(self, ):
+		super(DeepSEA_concatenation, self).__init__()
+		self.conv1 = nn.Conv1d(4, 320, kernel_size=8)
+		self.maxpool = nn.MaxPool1d(kernel_size=4, stride=4)
+		self.drop1 = nn.Dropout(p = 0.2)
+		self.conv2 = nn.Conv1d(320, 480, kernel_size=8)
+		self.conv3 = nn.Conv1d(480, 960, kernel_size=8)
+		self.drop2 = nn.Dropout(p=0.5)
+		self.fc1 = nn.Linear(50880, 925)
+		self.fc2 = nn.Linear(925+128, 919)
+		self.gcn1 = GraphConvolution(768, 1000)
+		self.gcn2 = GraphConvolution(1000, 400)
+		self.gcn3 = GraphConvolution(400, 128)
+	def forward(self, seq_input, node_input, adj_input, index_input):
+		seq_output = self.conv1(seq_input)
+		seq_output = nn.functional.relu(seq_output)
+		seq_output = self.maxpool(seq_output)
+		seq_output = self.drop1(seq_output)
+		seq_output = self.conv2(seq_output)
+		seq_output = F.relu(seq_output)
+		seq_output = self.maxpool(seq_output)
+		seq_output = self.drop1(seq_output)
+		seq_output = self.conv3(seq_output)
+		seq_output = F.relu(seq_output)
+		seq_output = self.drop2(seq_output)
+		seq_output = seq_output.view(-1, 50880)
+		seq_output = self.fc1(seq_output)
+		seq_output = F.relu(seq_output)
+		structure_output = F.relu(self.gcn1(node_input, adj_input))
+		structure_output = self.drop1(structure_output)
+		structure_output = self.gcn2(structure_output, adj_input)
+		structure_output = self.drop1(structure_output)
+		structure_output = self.gcn3(structure_output, adj_input)
+		structure_output = torch.matmul(index_input, structure_output)
+		concatenated_output = torch.cat((seq_output, structure_output), dim = 1)
+		concatenated_output = F.relu(concatenated_output)
+		concatenated_output = self.fc2(concatenated_output)
+		concatenated_output = torch.sigmoid(concatenated_output)
+		return concatenated_output
+
+class DanQ_concatenation(nn.Module):
+	def __init__(self, ):
+		super(DanQ_concatenation, self).__init__()
+		self.conv1 = nn.Conv1d(4, 320, kernel_size=26)
+		self.maxpool = nn.MaxPool1d(kernel_size=13, stride=13)
+		self.drop1 = nn.Dropout(p=0.2)
+		self.bilstm = nn.LSTM(320, 320, num_layers=1, batch_first=True, bidirectional=True)
+		self.drop2 = nn.Dropout(0.5)
+		self.fc1 = nn.Linear(48000, 925)
+		self.fc2 = nn.Linear(925+128, 919)
+		self.gcn1 = GraphConvolution(768, 1000)
+		self.gcn2 = GraphConvolution(1000, 400)
+		self.gcn3 = GraphConvolution(400, 128)
+	def forward(self, seq_input, node_input, adj_input, index_input):
+		seq_output = self.conv1(seq_input)
+		seq_output = F.relu(seq_output)
+		seq_output = self.maxpool(seq_output)
+		seq_output = self.drop1(seq_output)
+		seq_output = seq_output.transpose(0, 1).transpose(0, 2)
+		seq_output, _ = self.bilstm(seq_output)
+		seq_output = seq_output.transpose(0, 1)
+		seq_output = seq_output.contiguous().view(seq_output.size(0), 48000)
+		seq_output = self.drop2(seq_output)
+		seq_output = self.fc1(seq_output)
+		seq_output = F.relu(seq_output)
+		structure_output = F.relu(self.gcn1(node_input, adj_input))
+		structure_output = self.drop1(structure_output)
+		structure_output = self.gcn2(structure_output, adj_input)
+		structure_output = self.drop1(structure_output)
+		structure_output = self.gcn3(structure_output, adj_input)
+		structure_output = torch.matmul(index_input, structure_output)
+		concatenated_output = torch.cat((seq_output, structure_output), dim = 1)
+		concatenated_output = F.relu(concatenated_output)
+		concatenated_output = self.fc2(concatenated_output)
+		concatenated_output = torch.sigmoid(concatenated_output)
+		return concatenated_output
+
