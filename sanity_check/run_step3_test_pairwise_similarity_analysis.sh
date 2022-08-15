@@ -12,7 +12,7 @@ do
 				echo ${hic}_${seed}
 				mkdir -p data_correction_summary_${pairwise_resolution}/pairwise_similarity_whole_${hic}_${pairwise_resolution}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step13_test_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name GM12878 --cellline_pred_path ../model_assessment/model_prediction_selected/${hic}_bce_100000_replicate5_testpred.npy --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step3_test_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name GM12878 --cellline_pred_path ../model_assessment/model_prediction_selected/${hic}_bce_100000_replicate5_testpred.npy --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -24,7 +24,7 @@ do
 				echo ${hic}_${seed}
 				mkdir -p data_correction_summary_${pairwise_resolution}/pairwise_similarity_whole_${hic}_${pairwise_resolution}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step13_test_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name IMR90 --cellline_pred_path ../model_assessment/model_prediction_selected/${hic}_bce_100000_replicate5_testpred.npy --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step3_test_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name IMR90 --cellline_pred_path ../model_assessment/model_prediction_selected/${hic}_bce_100000_replicate5_testpred.npy --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -36,7 +36,7 @@ do
 				echo ${hic}_${seed}
 				mkdir -p data_correction_summary_${pairwise_resolution}/pairwise_similarity_whole_${hic}_${pairwise_resolution}_${seed}
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step13_test_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name K562 --cellline_pred_path ../model_assessment/model_prediction_selected/${hic}_bce_100000_replicate5_testpred.npy --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step3_test_pairwise_similarity_analysis.py --hic_name ${hic} --cellline_name K562 --cellline_pred_path ../model_assessment/model_prediction_selected/${hic}_bce_100000_replicate5_testpred.npy --random_seed ${seed} --pairwise_resolution ${pairwise_resolution} " >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
