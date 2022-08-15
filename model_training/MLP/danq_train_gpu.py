@@ -6,8 +6,8 @@ from model_general import DanQ
 from sklearn import metrics
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
-from libauc.optimizers import SOAP_SGD, SOAP_ADAM
-from libauc.losses import APLoss_SH
+#from libauc.optimizers import SOAP_SGD, SOAP_ADAM
+#from libauc.losses import APLoss_SH
 from model_resolution100000 import DanQ_concatenation
 
 def get_auprc(preds, obs):
