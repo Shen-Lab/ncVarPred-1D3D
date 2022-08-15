@@ -77,7 +77,7 @@ def main():
 	training_section_index = np.load(structure_matching_path + 'training_section_index.npy')
 	structure_all = np.load(general_path + '../if_matrix_' + resolution + '/' + structure_name + '_novc_whole_normalized.npy')
 	print('training data loading finished')
-	num_epoch = 50
+	num_epoch = 40
 	if(loss_type == 'BCE'):
 		best_valid_loss = 10
 	elif(loss_type == 'AP'):
