@@ -31,8 +31,8 @@ You need to provide the genome sequences, chromatin structure and the sequence-s
 Similar to the MLP based architecture, you may check the run_model_train.sh for more details. The DNABERT embedded whole genome vector can be downloaded [here](https://drive.google.com/file/d/1mC05WLGeNNO-nBGaYnCp4tw1Wkh6C9jd/view?usp=sharing).
 
 ## Model assessment (and extract motif)
-After the best models are selected based on validation loss, you may interest in the prediction auROC and auPRC on the test set. 
+After the best models are selected based on validation loss, you may interest in the prediction auROC and auPRC on the test set. At the same time, you may get the proposed motif based on the SOTA's sequence only model, our model with MLP and GCN for motif analysis.
 
 ## SNP/eQTL effect analysis
-
+For noncoding mutation effection prediction, two examples are provided in this section.
 
