@@ -13,10 +13,9 @@
 ##SBATCH --partition=gpu              #Request the GPU partition/queue
 
 #OPTIONAL JOB SPECIFICATIONS
-#SBATCH --account=132821719374             #Set billing account to 123456
+#SBATCH --account=123456             #Set billing account to 123456
 ##SBATCH --mail-type=ALL              #Send email on all job events
 ##SBATCH --mail-user=email_address    #Send all emails to email_address 
 
-source activate py38
 
 
