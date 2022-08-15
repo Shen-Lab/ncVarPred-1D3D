@@ -81,7 +81,7 @@ def main():
 	elif(node_feature_type == 'allones'):
 		node_feature = torch.from_numpy(np.zeros((structure_all.shape[0], 768)) + 1).float().cuda()
 	print('training data loading finished')
-	num_epoch = 2
+	num_epoch = 40
 	if(loss_type == 'BCE'):
 		best_valid_loss = 10
 	elif(loss_type == 'AP'):
