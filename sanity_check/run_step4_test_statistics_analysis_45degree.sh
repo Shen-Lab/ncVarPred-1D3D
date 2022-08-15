@@ -10,7 +10,7 @@ do
 			if test ! -f data_correction_summary_${pairwise_resolution}/45degree_statistics_summary/${hic}_100_${seed}_similarity_summary.npy
 			then
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step14_test_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed} --cellline_specific GM12878" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step4_test_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed} --cellline_specific GM12878" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -20,7 +20,7 @@ do
 			if test ! -f data_correction_summary_${pairwise_resolution}/45degree_statistics_summary/${hic}_100_${seed}_similarity_summary.npy
 			then
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step14_test_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed} --cellline_specific IMR90" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step4_test_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed} --cellline_specific IMR90" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
@@ -30,7 +30,7 @@ do
 			if test ! -f data_correction_summary_${pairwise_resolution}/45degree_statistics_summary/${hic}_100_${seed}_similarity_summary.npy
 			then
 				cp template.slurm run_${hic}_${pairwise_resolution}_${seed}.slurm
-				echo "python step14_test_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed} --cellline_specific K562" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
+				echo "python step4_test_statistics_analysis_45degree.py --hic_name ${hic} --pairwise_resolution ${pairwise_resolution} --random_seed ${seed} --cellline_specific K562" >> run_${hic}_${pairwise_resolution}_${seed}.slurm
 				sbatch run_${hic}_${pairwise_resolution}_${seed}.slurm
 				rm run_${hic}_${pairwise_resolution}_${seed}.slurm
 			fi
