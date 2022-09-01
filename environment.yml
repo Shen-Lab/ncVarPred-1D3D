@@ -152,4 +152,5 @@ dependencies:
     - tensorflow-estimator==2.7.0
     - tensorflow-io-gcs-filesystem==0.22.0
     - tifffile==2021.11.2
+    - wget==3.2
 prefix: /scratch/user/wuwei_tan/.conda/envs/py38
