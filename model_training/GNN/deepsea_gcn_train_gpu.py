@@ -73,6 +73,9 @@ def main():
 	training_section_chr = np.load(structure_matching_path + 'training_section_chr.npy')
 	training_section_index = np.load(structure_matching_path + 'training_section_index.npy')
 	#convert continuous normalized IF into binary IF matrix.
+	#if_matrix = np.array(np.load(general_path + '../if_matrix_' + resolution + '/' + structure_name + '_novc_whole_normalized.npy') > 0, dtype = float)
+        #if_matrix = if_matrix / np.sum(if_matrix) * if_matrix.shape[0]
+        #structure_all = torch.from_numpy(if_matrix).float().cuda()
 	structure_all = torch.from_numpy(np.load(general_path + '../if_matrix_' + resolution + '/' + structure_name + '_novc_whole_normalized.npy')).float().cuda()
 	if(node_feature_type == 'dnabert'):
 		node_feature = torch.from_numpy(np.load('dnabert_embedded_mean.npy')).float().cuda()
