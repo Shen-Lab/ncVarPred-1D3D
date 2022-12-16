@@ -185,7 +185,7 @@ def main():
 					torch.save(danq_concatenation, model_output_path + 'danq_{loss_name}_'.format(loss_name = loss_type.lower()) + specific_name + '{structure_name}_resolution{resolution}_lr{lr}_l1reg{l1reg}_l2reg{l2reg}_epoch{epoch}_trainloss{trainloss}_validloss{validloss}.pkl'.format(structure_name = structure_name, resolution = resolution, lr = lr, l1reg = lambda_l1, l2reg = lambda_l2, trainloss = round(train_loss, 5), validloss = round(valid_loss, 5), epoch = round(epoch_i + section_i / section_size, 3)))
 				else:
 					patient_count = patient_count + 1
-				if(patient_count > 20):
+				if(patient_count > 40):
 					exit()
 if __name__=='__main__':
 	main()
