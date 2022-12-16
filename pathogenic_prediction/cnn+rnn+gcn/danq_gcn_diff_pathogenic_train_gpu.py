@@ -7,7 +7,6 @@ from model_gcn import DanQ_concatenation
 from model_diff_pathogenic import finetune_pathogenic
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
-from sklearn import metrics
 
 class pathogenic_prediction_model(nn.Module):
 	def __init__(self, DanQ_concatenation, finetune_pathogenic):
@@ -21,16 +20,6 @@ class pathogenic_prediction_model(nn.Module):
 		epigenetic_embedding_mt_output = self.DanQ_concatenation(seq_mt_input, node_input, adj_input, index_input)
 		pathogenic_output = self.finetune_pathogenic(epigenetic_embedding_wt_output, epigenetic_embedding_mt_output)
 		return pathogenic_output
-
-def get_auroc(preds, obs):
-	fpr, tpr, thresholds  = metrics.roc_curve(obs, preds, drop_intermediate=False)
-	auroc = metrics.auc(fpr, tpr)
-	return auroc
-
-def get_auprc(preds, obs):
-	precision, recall, thresholds  = metrics.precision_recall_curve(obs, preds)
-	auprc = metrics.auc(recall, precision)
-	return auprc
 
 def parse_arguments():
 	parser = argparse.ArgumentParser(prog = 'concatenation architecture tunning')
