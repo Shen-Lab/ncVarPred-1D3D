@@ -39,6 +39,6 @@ For noncoding mutation effection prediction, two examples are provided in this s
 ### GTEx (cell line specific) eQTLs
 You may need to download the data file [Cells_Transformed_fibroblasts.v7.egenes.txt for GM12878 and Cells_EBV-transformed_lymphocytes.v7.egenes.txt for IMR90](https://www.gtexportal.org/home/datasets). Then you may preprocess the downloaded file and use our model (or SOTA) to predict the epigenetic events profile changes.
 
-### GRASP (general) SNPs dataset
-The origin dataset can be downloaded from the DeepSEA's supplementary. You may use the same pipeline to predict the epigenetic events profile changes and train the XGBoost regression model to see the classification accuracy.
+### Pathogenic prediction
+The code used to train the pathogenic prediction, CNN+MLP or CNN/RNN+GCN are provided.
 
