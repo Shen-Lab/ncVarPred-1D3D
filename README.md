@@ -42,3 +42,21 @@ You may need to download the data file [Cells_Transformed_fibroblasts.v7.egenes.
 ### Pathogenic prediction
 The code used to train the pathogenic prediction, CNN+MLP or CNN/RNN+GCN are provided.
 
+
+
+## Citation:
+If you find the code useful for your research, please consider citing our paper:
+```
+@article{Tan2022ncVar,
+	author = {Tan, Wuwei and Shen, Yang},
+	title = {Multimodal learning of noncoding variant effects using genome sequence and chromatin structure},
+	elocation-id = {2022.12.20.521331},
+	year = {2022},
+	doi = {10.1101/2022.12.20.521331},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/10.1101/2022.12.20.521331v1},
+	journal = {bioRxiv}
+}
+```
+
+
