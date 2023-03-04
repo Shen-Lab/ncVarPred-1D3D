@@ -177,7 +177,7 @@ def main():
 					for channel_i in range(num_output_channel):
 						ap[channel_i] = get_auprc(valid_prediction[:, channel_i], valid_y.numpy()[:, channel_i])
 					valid_loss = np.nanmean(ap)
-				if(((valid_loss < best_valid_loss) & (loss_type == 'BCE')) | ((valid_loss > best_valid_loss) & (loss_type == 'AP'))) :
+				if(((valid_loss < best_valid_loss) & (loss_type == 'BCE')) | ((valid_loss > best_valid_loss) & (loss_type == 'AP'))):
 					best_valid_loss = valid_loss
 					torch.save(deepsea_concatenation, model_output_path + 'deepsea_{loss_name}_'.format(loss_name = loss_type.lower()) + specific_name + '{structure_name}_resolution{resolution}_lr{lr}_l1reg{l1reg}_l2reg{l2reg}_best.pkl'.format(structure_name = structure_name, resolution = resolution, lr = lr, l1reg = lambda_l1, l2reg = lambda_l2))
 					patient_count = 0
