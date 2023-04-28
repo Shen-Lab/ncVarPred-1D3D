@@ -11,14 +11,12 @@ do
 			do
 				for fewshotsize in 20 40 60 80
 				do
-					#mkdir -p model_replicate${replicate}
-					#cp template_gpu.slurm run.slurm
-					#echo "python cnn_mlp_diff_pathogenic_train.py --structure_name ${hic} --learning_rate ${lr} --retrain_boolean False --model_input_path na --model_output_path model_replicate${replicate}/ --epigenetic_embedding_model_input_path ../trained_model/CNN_MLP/${hic}_replicate${replicate}.pkl --few_shot_size ${fewshotsize} --lambda_l2 ${l2reg}" >> run.slurm
-					#echo "
-					python cnn_rnn_gcn_diff_pathogenic_train.py --structure_name ${hic} --learning_rate ${lr} --retrain_boolean False --model_input_path na --model_output_path model_replicate${replicate}/ --epigenetic_embedding_model_input_path ../trained_model/CNN_RNN_GCN/${hic}_DNABERT_replicate${replicate}.pkl --few_shot_size ${fewshotsize} --lambda_l2 ${l2reg}
-					#" >> run.slurm
-					#sbatch run.slurm
-					#rm run.slurm
+					mkdir -p model_replicate${replicate}
+					cp template_gpu.slurm run.slurm
+					echo "python cnn_mlp_diff_pathogenic_train.py --structure_name ${hic} --learning_rate ${lr} --retrain_boolean False --model_input_path na --model_output_path model_replicate${replicate}/ --epigenetic_embedding_model_input_path ../trained_model/CNN_MLP/${hic}_replicate${replicate}.pkl --few_shot_size ${fewshotsize} --lambda_l2 ${l2reg}" >> run.slurm
+					echo "python cnn_rnn_gcn_diff_pathogenic_train.py --structure_name ${hic} --learning_rate ${lr} --retrain_boolean False --model_input_path na --model_output_path model_replicate${replicate}/ --epigenetic_embedding_model_input_path ../trained_model/CNN_RNN_GCN/${hic}_DNABERT_replicate${replicate}.pkl --few_shot_size ${fewshotsize} --lambda_l2 ${l2reg}" >> run.slurm
+					sbatch run.slurm
+					rm run.slurm
 				done
 			done
 		done
@@ -26,7 +24,7 @@ do
 done
 #comment
 
-<<comment
+#<<comment
 for lr in 1e-5
 do
 	for l2reg in 1e-8
@@ -41,5 +39,5 @@ do
 		done
 	done
 done
-comment
+#comment
 
