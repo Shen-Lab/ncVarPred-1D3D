@@ -5,7 +5,7 @@ Integrate 1D genome sequence and 3D chromatin structure for noncoding genome var
 You may create conda environment needed, by running "conda env create -f ncvarpred_1d3d.yml".
 
 ## Data Download
-Most data needed, except some sanity check needed procssed Hi-C derived normalized interaction frequency matrix, can be downloaded from the [Zenodo](). The most recent [Sei](https://www.nature.com/articles/s41588-022-01102-2) based pretrained models can be downloaded from the [Zenodo](). You need to decompress all files, by running the code "bash decompress.sh".
+Most data needed, except some sanity check needed procssed Hi-C derived normalized interaction frequency matrix, can be downloaded from the [Zenodo](https://zenodo.org/deposit/7872096). The most recent [Sei](https://www.nature.com/articles/s41588-022-01102-2) based pretrained models can be downloaded from the [Zenodo](https://zenodo.org/record/7872811#.ZEslQ3bMJmM). You need to decompress all files, by running the code "bash decompress.sh".
 
 ## Model training (all codes in the model_training folder)
 [DeepSEA](https://www.nature.com/articles/nmeth.3547) based or [DanQ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/) based models can be trained by running the code train_model_mlp.py or train_model_gcn.py for our MLP or GCN models respectively. You may custom the learning rate, regularization. You may find more details in run_train_model.sh.
