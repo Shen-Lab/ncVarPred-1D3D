@@ -12,6 +12,8 @@ Most data needed, except some sanity check needed procssed Hi-C derived normaliz
 
 Sei based models can be trained by running the code train_sei_mlp.py or train_sei_gcn.py for our proposed MLP or GCN architecture respectively. You may custom the learning term and regularization.You may find more details in run_train_sei_mlp_gcn.sh. 
 
+Training time and source estimation: We trained on the 48-core A100 GPU. Training one epoch of CNN+MLP or CNN/RNN+MLP takes around 20 minutes. Training one epoch of CNN+GCN takes around 30 minutes. Training one epoch of CNN/RNN+GCN takes around 4 hours. Training one epoch of Sei+MLP takes around 4 hours. Training one epoch of Sei+GCN takes around 6 hours.
+
 ## Model assessment (all codes in the model_testing folder)
 The test set performance of all pretrained model can be assessed by running the test_model_mlp.py or test_model_gcn.py for our proposed MLP or GCN architecture respectively. You may get all results by running the code run_test_model.sh. If you are interested the Sei related models, you may get the test set performance by running the code test_sei_mlp.py, test_sei_gcn.py. Or for simplicity sake, use the run_test_sei.sh. Please note that running that code to assess one pretrained Sei related mdoel on A100 GPU may take around 8 hours. The DeepSEA or DanQ related models may only tabke around 10 minutes.
 
