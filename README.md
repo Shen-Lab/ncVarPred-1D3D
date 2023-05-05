@@ -7,6 +7,9 @@ You may create conda environment needed, by running "conda env create -f ncvarpr
 ## Data Download
 Most data needed, except some sanity check needed procssed Hi-C derived normalized interaction frequency matrix, can be downloaded from the [Zenodo](https://zenodo.org/record/7872096#.ZEsl5nbMJmM). The most recent [Sei](https://www.nature.com/articles/s41588-022-01102-2) based pretrained models can be downloaded from the [Zenodo](https://zenodo.org/record/7872811#.ZEslQ3bMJmM). You need to decompress all files, by running the code "bash decompress.sh".
 
+## Sanity check, inconsistency among 1D genome sequence, 3D chromatin structure and epigenetic profile.
+You may reproduce our sanity check results, by running the step 1-3 for prior training and step 4-6 for post training statistical tests respectively. Due to the file size limit, you may need to preprocess the interaction frequency matrix by yourself. The processed interaction frequency matrix for model training can be downloaded directly using the link provided above. To get all normalized interaction frequency matrixs, you need to run the 'preprocessing.py' and 'normalized_if.py' in the folder data_preprocessing. The whole process including data downloading and processing may take tens of hours. You may need to download the hic file processing tool [juicer](https://github.com/aidenlab/juicer).
+
 ## Model training (all codes in the model_training folder)
 [DeepSEA](https://www.nature.com/articles/nmeth.3547) based or [DanQ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4914104/) based models can be trained by running the code train_model_mlp.py or train_model_gcn.py for our MLP or GCN models respectively. You may custom the learning rate, regularization. You may find more details in run_train_model.sh.
 
