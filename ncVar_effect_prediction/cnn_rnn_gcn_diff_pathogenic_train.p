@@ -82,7 +82,7 @@ def main():
 	node_feature = torch.from_numpy(np.load('../training_data/whole_genome_embedding/DNABERT_embedded_mean.npy')).float()
 	node_feature = node_feature.cuda()
 	print('data loading finished')
-	num_epoch = 5
+	num_epoch = 1000
 	best_valid_loss = 100
 	patient_count = 0
 	optimizer = torch.optim.Adam(pathogenic_prediction.parameters(), lr=lr, weight_decay = float(lambda_l2))
