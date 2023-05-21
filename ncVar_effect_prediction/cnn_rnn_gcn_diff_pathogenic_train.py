@@ -135,7 +135,7 @@ def main():
 			torch.save(pathogenic_prediction, model_output_path + 'CNN_RNN_GCN_DNABERT_diff_pathogenic_{structure_name}_lr{lr}_fewshotsize{few_shot_size}_l2reg{l2reg}_epoch{epoch}_trainloss{trainloss}_validloss{validloss}.pkl'.format(structure_name = structure_name, lr = lr, few_shot_size = str(int(few_shot_size)), l2reg = lambda_l2, trainloss = round(train_loss, 5), validloss = round(valid_loss, 5), epoch = epoch_i))
 		else:
 			patient_count = patient_count + 1
-		if(patient_count > 10):
+		if(patient_count > 40):
 			exit()
 
 if __name__=='__main__':
