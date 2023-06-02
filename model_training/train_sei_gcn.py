@@ -3,7 +3,8 @@ from layers import GraphConvolution
 from sei_gcn import Sei_concatenation
 import argparse
 from torch.utils.data import TensorDataset, DataLoader
-
+import torch
+import torch.nn as nn
 
 def parse_arguments():
 	parser = argparse.ArgumentParser(prog = 'concatenation architecture tunning')
