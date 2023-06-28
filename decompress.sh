@@ -1,46 +1,36 @@
-for file in ncVar_data.tar.gz  sanity_check_data.tar.gz  trained_model.tar.gz  trained_model_Sei_related.tar.gz  training_data.tar.gz
+mkdir -p trained_model
+for file in SOTA CNN_MLP CNN_GCN CNN_RNN_MLP CNN_RNN_GCN Sei_MLP Sei_GCN training_dat fewshot_pathogenic_model sanity_check_data
 do
-	tar -xvzf ${file}
+	tar -xvzf ${file}.tar.gz
+	mv ${file} trained_model/
 done
 
-cd ncVar_data
-for file in GTEx_eQTL_data.tar.gz hg19_ref_seq.tar.gz ncVarDB_data.tar.gz
+cd training_data
+for file in deepsea_seq_label deepsea_structure_matching_index if_matrix sei_seq_label sei_structure_matching_index whole_gneome_embedding
 do
-	tar -xvzf ${file}
+	tar -xvzf ${file}.tar.gz
 done
 cd ..
 
 cd sanity_check_data
-for file in deepsea_data.tar.gz trained_model_prediction.tar.gz
+for file in deepsea_data trained_model_prediction
 do
-	tar -xvzf ${file}
+	tar -xvzf ${file}.tar.gz
 done
 cd ..
 
-mkdir -p trained_model
-cd trained_model
-for file in CNN_GCN.tar.gz CNN_MLP.tar.gz CNN_RNN_GCN.tar.gz CNN_RNN_MLP.tar.gz SOTA.tar.gz fewshot_pathogenic_model.tar.gz
+cd fewshot_pathogenic_model
+for file in CNN_RNN_related_pathogenic CNN_related_pathogenic
 do
-	mv ../${file} .
-	tar -xvzf ${file}
+	tar -xvzf ${file}.tar.gz
+done
+
+cd ncVar_data
+for file in GTEx_eQTL_data hg19_ref_seq ncVarDB_data
+do
+	tar -xvzf ${file}.tar.gz
 done
 cd ..
 
-cd trained_model_Sei_related
-for file in Sei_GCN.tar.gz  Sei_MLP.tar.gz
-do
-	tar -xvzf ${file}
-done
-cd ..
-cd training_data
-for file in deepsea_seq_label.tar.gz if_matrix.tar.gz sei_seq_label.tar.gz whole_genome_embedding.tar.gz deepsea_structure_matching_index.tar.gz sei_structure_matching_index.tar.gz
-do
-	tar -xvzf ${file}
-done
-cd ..
-
-mv trained_model_Sei_related/Sei_GCN trained_model/
-mv trained_model_Sei_related/Sei_MLP trained_model/
-
-rm *.tar.gz
-rm */*.tar.gz
+rm *tar.gz 
+rm */*tar.gz
