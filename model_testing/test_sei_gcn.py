@@ -12,6 +12,7 @@ def parse_arguments():
 	parser.add_argument('--structure_input_matching_path', type = str)
 	parser.add_argument('--output_path', type = str)
 	parser.add_argument('--output_model_name', type = str)
+	parser.add_argument('--node_feature_type', type = str, default = 'allones')
 	args = parser.parse_args()
 	return args
 
@@ -24,6 +25,7 @@ def main():
 	structure_input_matching_path = args.structure_input_matching_path
 	output_path = args.output_path
 	output_model_name = args.output_model_name
+	node_feature_type = args.node_feature_type
 	bce_loss_threshold = 1e-12
 	model = torch.load(model_path)
 	model.eval()
@@ -33,8 +35,13 @@ def main():
 	valid_y = torch.from_numpy(np.load(seq_label_path + 'label_validation.npy'))
 	test_section_chr = np.load(structure_input_matching_path + 'testing_section_chr.npy')
 	test_section_index = np.load(structure_input_matching_path + 'testing_section_index.npy')
-	structure_all = torch.from_numpy(np.load(structure_input_path)).float().cuda()
-	node_feature = torch.from_numpy(np.load('../training_data/whole_genome_embedding/DNABERT_embedded_mean.npy')).float().cuda()
+	if(node_feature_type == 'DNABERT'):
+		node_feature = torch.from_numpy(np.load('../training_data/whole_genome_embedding/DNABERT_embedded_mean.npy')).float().cuda()
+	elif(node_feature_type == 'DeepSEA'):
+		node_feature = torch.from_numpy(np.load('../training_data/whole_genome_embedding/DeepSEA_embedded_mean.npy')).float().cuda()
+	elif(node_feature_type == 'allones'):
+		node_feature = torch.from_numpy(np.zeros((structure_all.shape[0], 768)) + 1).float().cuda()	
+	structure_all = torch.from_numpy(np.load(structure_input_path)).float().cuda()	
 	valid_node_selection_index = np.zeros((len(valid_structure_matching_index), structure_all.shape[0]))
 	for sample_i in range(len(valid_structure_matching_index)):
 		valid_node_selection_index[sample_i, valid_structure_matching_index[sample_i]] = 1
