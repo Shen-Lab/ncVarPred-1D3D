@@ -55,8 +55,8 @@ def main():
 	chr_temp = chr_list[0]	
 	chr_seq = np.load(ref_seq_input_path + 'chr' + chr_temp + '.npy')
 	for eqtl_i in range(len(chr_list)):
-		if((eqtl_i // 100) == (eqtl_i / 100)):
-			print(eqtl_i)
+		#if((eqtl_i // 100) == (eqtl_i / 100)):
+		#	print(eqtl_i)
 		wt_seq_temp = np.zeros((1000, 4))
 		mt_seq_temp = np.zeros(wt_seq_temp.shape)
 		if(chr_list[eqtl_i] != chr_temp):

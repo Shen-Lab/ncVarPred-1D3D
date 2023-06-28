@@ -1,6 +1,7 @@
 #!/bin/sh
 mkdir -p model_prediction
 #GTEx eQTL
+<<comment
 for replicate in {1..5}
 do
 	for cellline in GM12878
@@ -42,8 +43,10 @@ do
 		python get_log_odds_fc.py --input_path model_prediction/ --experiment_name GTEx_${cellline}_DanQ --output_path model_prediction/
 	done
 done
+comment
 
 #ncVarDB
+#<<comment
 for replicate in {1..5}
 do
 	for hic in ENCFF014VMM ENCFF928NJV ENCFF013TGD
@@ -63,5 +66,5 @@ do
 done
 python get_log_odds_fc.py --input_path model_prediction/ --experiment_name ncVar_DeepSEA --output_path model_prediction/
 python get_log_odds_fc.py --input_path model_prediction/ --experiment_name ncVar_DanQ --output_path model_prediction/
-
+#comment
 

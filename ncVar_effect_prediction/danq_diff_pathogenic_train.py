@@ -108,9 +108,9 @@ def main():
 			valid_sample_index += valid_batch_size_i 
 		train_loss = np.average(train_losses)
 		valid_loss = valid_loss / valid_sample_index / 2
-		print(valid_loss)
 		if(valid_loss < best_valid_loss):
 			best_valid_loss = valid_loss
+			print(best_valid_loss)
 			patient_count = 0
 			torch.save(pathogenic_prediction, model_output_path + 'DanQ_diff_pathogenic_lr{lr}_fewshotsize{few_shot_size}_l2reg{l2reg}_epoch{epoch}_trainloss{trainloss}_validloss{validloss}.pkl'.format(lr = lr, few_shot_size = str(int(few_shot_size)), l2reg = lambda_l2, trainloss = round(train_loss, 5), validloss = round(valid_loss, 5), epoch = epoch_i))
 		else:

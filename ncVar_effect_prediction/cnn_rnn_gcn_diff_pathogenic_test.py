@@ -69,11 +69,14 @@ def main():
 		test_batch_pred_secondhalf = pathogenic_prediction(test_batch_seq_wt, test_batch_seq_mt, node_feature, structure_all, test_batch_node_selection_index)
 		test_batch_pred = (test_batch_pred_firsthalf.cpu().detach().numpy() + test_batch_pred_secondhalf.cpu().detach().numpy()) / 2
 		test_pred[int(test_batch_size * test_batch_i):int(test_batch_size * test_batch_i + test_batch_size)] = test_batch_pred.flatten()
+	print(test_pred)
+	#np.save('test_pred.npy', np.array(test_pred))
 	test_auroc = get_auroc(test_pred, test_label_raw)
 	test_auprc = get_auprc(test_pred, test_label_raw)
 	print(str(test_auroc) + ' & ' + str(test_auprc))
 	np.save(result_output_path, np.array([test_auroc, test_auprc]))
 	np.save(result_output_path.split('_auroc_auprc')[0] + '_pred.npy', test_pred)
+	np.save(result_output_path.split('_auroc_auprc')[0] + '_auroc' + str(round(test_auroc, 5)) + '_auprc' + str(round(test_auprc, 5)) + '.npy', np.zeros(0))
 
 if __name__=='__main__':
 	main()

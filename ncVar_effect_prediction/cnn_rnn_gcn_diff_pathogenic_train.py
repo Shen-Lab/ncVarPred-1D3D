@@ -82,12 +82,10 @@ def main():
 	node_feature = torch.from_numpy(np.load('../training_data/whole_genome_embedding/DNABERT_embedded_mean.npy')).float()
 	node_feature = node_feature.cuda()
 	print('data loading finished')
-	num_epoch = 1000
+	num_epoch = 5
 	best_valid_loss = 100
 	patient_count = 0
 	optimizer = torch.optim.Adam(pathogenic_prediction.parameters(), lr=lr, weight_decay = float(lambda_l2))
-	train_class_weight = train_label_raw * (1 - np.mean(train_label_raw)) + (1 - train_label_raw) * np.mean(train_label_raw)
-	train_class_weight = torch.from_numpy(train_class_weight.reshape((-1, 1))).float()
 	train_loss_function = nn.BCELoss()
 	valid_loss_function = nn.BCELoss()
 	print('optimization started')
@@ -135,7 +133,7 @@ def main():
 			torch.save(pathogenic_prediction, model_output_path + 'CNN_RNN_GCN_DNABERT_diff_pathogenic_{structure_name}_lr{lr}_fewshotsize{few_shot_size}_l2reg{l2reg}_epoch{epoch}_trainloss{trainloss}_validloss{validloss}.pkl'.format(structure_name = structure_name, lr = lr, few_shot_size = str(int(few_shot_size)), l2reg = lambda_l2, trainloss = round(train_loss, 5), validloss = round(valid_loss, 5), epoch = epoch_i))
 		else:
 			patient_count = patient_count + 1
-		if(patient_count > 40):
+		if(patient_count > 10):
 			exit()
 
 if __name__=='__main__':
