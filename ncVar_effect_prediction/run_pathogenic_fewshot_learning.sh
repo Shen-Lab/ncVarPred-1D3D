@@ -1,9 +1,8 @@
 #!/bin/sh
 
-#<<comment
-for lr in  5e-5
+for lr in  1e-5
 do
-	for l2reg in 1e-8
+	for l2reg in 0
 	do
 		for hic in ENCFF014VMM ENCFF928NJV ENCFF013TGD
 		do
@@ -25,7 +24,7 @@ done
 
 for lr in 1e-5
 do
-	for l2reg in 1e-8
+	for l2reg in 0
 	do
 		for fewshotsize in 50 100 150 200 250 300 350 400
 		do
