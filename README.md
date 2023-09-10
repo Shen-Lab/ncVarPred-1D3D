@@ -1,4 +1,4 @@
-# Multimodal learning of noncoding variant effects using genome sequence and chromatin structure
+# [Multimodal learning of noncoding variant effects using genome sequence and chromatin structure](https://doi.org/10.1093/bioinformatics/btad541)
 Integrate 1D genome sequence and 3D chromatin structure for noncoding genome variant effect prediction
 
 ## Environment preparation
@@ -41,14 +41,16 @@ The few shot learning pathogenic variant prediction model can be trained (and te
 If you find the code useful for your research, please consider citing our paper:
 ```
 @article{Tan2022ncVar,
-	author = {Tan, Wuwei and Shen, Yang},
-	title = {Multimodal learning of noncoding variant effects using genome sequence and chromatin structure},
-	elocation-id = {2022.12.20.521331},
-	year = {2022},
-	doi = {10.1101/2022.12.20.521331},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/10.1101/2022.12.20.521331v1},
-	journal = {bioRxiv}
+    author = {Tan, Wuwei and Shen, Yang},
+    title = "{Multimodal learning of noncoding variant effects using genome sequence and chromatin structure}",
+    journal = {Bioinformatics},
+    pages = {btad541},
+    year = {2023},
+    month = {09},
+    issn = {1367-4811},
+    doi = {10.1093/bioinformatics/btad541},
+    url = {https://doi.org/10.1093/bioinformatics/btad541},
+    eprint = {https://academic.oup.com/bioinformatics/advance-article-pdf/doi/10.1093/bioinformatics/btad541/51359172/btad541.pdf},
 }
 ```
 
