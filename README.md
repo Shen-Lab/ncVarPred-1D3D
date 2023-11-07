@@ -26,7 +26,7 @@ The test set performance of all pretrained model can be assessed by running the 
 For noncoding mutation effection prediction, a eQTL effect prediction and a few-shot learning pathogenic variant prediction experiments are provided.
 
 ### GTEx (cell line specific) eQTLs
-You may need to download the data file [Cells_Transformed_fibroblasts.v7.egenes.txt for GM12878 and Cells_EBV-transformed_lymphocytes.v7.egenes.txt for IMR90](https://www.gtexportal.org/home/datasets). Then you may preprocess the downloaded file and use our model (or SOTA) to predict the epigenetic events profile changes. More details about how the eQTL information are extracted, processed and preared as our model input can be found in the code "preprocess_GTEx_step1_collect_eqtl_list.py" and "prepare_seq.py". This may be helpful if you want to use our model for novel variants effect prediction.
+You may need to download the data file [Cells_Transformed_fibroblasts.v7.egenes.txt for GM12878 and Cells_EBV-transformed_lymphocytes.v7.egenes.txt for IMR90](https://www.gtexportal.org/home/datasets). Then you may preprocess the downloaded file and use our model (or SOTA) to predict the epigenetic events profile changes. More details about how the eQTL information are extracted, processed and preared as our model input can be found in the code "prepare_seq.py". This may be helpful if you want to use our model for novel variants effect prediction.
 
 ### ncVarDB
 Raw data is available at [ncVarDB repo](https://github.com/Gardner-BinfLab/ncVarDB)
