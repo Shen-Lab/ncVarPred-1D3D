@@ -37,6 +37,8 @@ You may get all inference results by running the code "run_model_inference.sh". 
 ### Few-shot learning for pathogenic variant prediction
 The few shot learning pathogenic variant prediction model can be trained (and tested) by running the code "run_pathogenic_fewshot_learning.sh" and "run_pathogenic_fewshot_learning_test.sh".
 
+(2023/11) Please find a [step-by-step explanation](https://github.com/Shen-Lab/ncVarPred-1D3D/issues/1#issuecomment-1797297177) of how to prepare and access variant effect prediction in epigenetic profiles (and downstream phenotypes such as expression or pathogenicity). 
+
 ## Citation:
 If you find the code useful for your research, please consider citing our paper:
 ```
